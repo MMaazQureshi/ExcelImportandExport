@@ -1,0 +1,75 @@
+﻿@model IEnumerable<TrackingWorldProject.ViewModel.VehicleViewModel>
+<h2>Vehicle Records</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table table-bordered" id="datatable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RegNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EngineNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChasisNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfPurchase)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        { 
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RegNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Make)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Model)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Color)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EngineNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ChasisNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOfPurchase)
+                    </td>
+                    <td>
+                        <span >@item.Active</span>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.VehicleId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.VehicleId })|
+                        @Html.ActionLink("Delete", "Delete", new { id = item.VehicleId })
+                    </td>
+                </tr>
+            }
+        
+    </tbody>
+
+</table>
